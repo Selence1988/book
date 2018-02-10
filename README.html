@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Examples作业二</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="
+			width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link href="" rel="stylesheet">
+
+		<style type='text/css'>
+
+			/*多元素选择*/
+		body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+		ol,ul{margin:0;padding:0;list-style:none;}
+		a{text-decoration:none;color:#666;}
+		img{border:none;}
+		body{font:12px '微软雅黑'; color:#666;}
+		input{outline:none;}
+		*{margin:0;padding:0;}
+    	.clearfix:after{
+        content:'';
+        display: block;
+        clear: both;
+    	}
+     	.fl{float:left;}
+    	.fr{float:right;}
+
+		.wrap{
+			width: 400px;
+			margin: 50px auto 10px;			
+			border: 1px solid #ccc;
+		}
+		.top{
+			height: 40px;
+			background-color: #eee;
+			padding: 10px;  
+		}
+		.top img{
+			height: 35px;
+			width: 35px;
+			border-radius: 50%;
+		}
+		.top .inputtext{
+			display: none;
+			margin-left: 10px;
+		}
+		.top .inputtext input{
+			height: 30px;
+			width: 200px;
+
+		}
+		.top .inputtext button{
+			height: 33px;
+			width: 50px;
+		}
+		.top span{
+			border-radius: 50%;
+			padding: 8px 12px;
+			background-color: #ccc;
+			color: #fff;
+		}
+		.wrap ul{
+			padding: 10px;
+		}
+		.wrap ul li{
+			padding: 10px;
+			font-size: 14px;
+		}
+		.wrap ul li img{
+			border-radius: 50%;
+			width: 35px;
+			height: 35px;
+		}
+		.wrap ul li p{
+			margin-left: 10px;
+		}
+
+
+
+
+		</style>
+
+	</head>
+<body>
+    <div class="wrap">
+
+    	<div class="top ">
+    		<img src="images/01.jpg" class="fl">
+    		<div class="inputtext fl">
+    			<input type="text" placeholder="请输入内容" class="fl">
+    			<button class="fl">发表</button>
+    		</div>
+    		<span class="fr">+</span>
+    	</div>    	
+		<ul>
+			<li class="clearfix">
+				<img src="images/1.jpg" class="fl">
+				<p class="fl">HelloWorld</p>
+			</li>
+		</ul>
+    	
+
+    </div>
+
+    <script>
+    	var oImg = document.getElementsByTagName('img')[0];
+    	var oSpan = document.getElementsByTagName('span')[0];
+    	var oInputText = document.getElementsByClassName('inputtext')[0];
+    	var oButton = document.getElementsByTagName('button')[0];
+    	var oInput = document.getElementsByTagName('input')[0];
+    	var oUl = document.getElementsByTagName('ul')[0];
+    	var oLi = document.getElementsByTagName('li')[0];
+    	//切换头像
+    	var a = 1;
+    	oImg.onclick = function(){
+    		if( a == 1 ){
+    			oImg.src = 'images/02.jpg';
+    			a = 2;
+    		}else{
+    			oImg.src = 'images/01.jpg';
+    			a = 1;
+    		}
+    	}
+    	// 显示输入框
+    	oSpan.onclick = function(){
+    		oInputText.style.display = 'block';
+    	}
+    	//发表
+    	oButton.onclick = function(){
+    		oLi = '<li class="clearfix">' + '<img src='+oImg.src+' class="fl">' + '<p class="fl">' + oInput.value +'</p>' + '</li>';
+    		oUl.innerHTML += oLi;
+    		oInput.innerHTML = '';
+    	}
+
+    	
+    </script>
+</body>
+</html>
